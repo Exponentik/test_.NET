@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{27BBE8C4-345E-4A6F-B693-BA32A3B363ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Context.Entities", "Data\TestTask.Context.Etities\TestTask.Context.Entities.csproj", "{0358206E-BFE7-4F94-A725-AB769997ED91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Context", "Data\TestTask.Context\TestTask.Context.csproj", "{5D900189-28C3-46A1-B50C-31F651843571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3176A744-63DC-4BE4-BE39-DBD7A658725A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service A", "Service A", "{846F7421-ACB0-4A05-B567-04F44EBD5DCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service B", "Service B", "{5A9C3B78-9CD1-4B55-B328-CF84A4F73B59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceB", "Services\ServiceB\ServiceB.csproj", "{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceA", "Services\ServiceA\ServiceA.csproj", "{3F7C9373-8C65-4598-B046-9321ADB6ED70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AF119E06-5E9A-40C3-9C8D-B8555E84E58F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EA4C655B-0F4F-478D-81FA-07C51BA83B8A}"
+	ProjectSection(SolutionItems) = preProject
+		Web\test_web\src\App.css = Web\test_web\src\App.css
+		Web\test_web\src\App.js = Web\test_web\src\App.js
+		Web\test_web\src\index.css = Web\test_web\src\index.css
+		Web\test_web\src\index.js = Web\test_web\src\index.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{36EF3915-3F28-4CA9-A717-1F91D508B2E1}"
+	ProjectSection(SolutionItems) = preProject
+		Web\test_web\src\components\SyncForm.jsx = Web\test_web\src\components\SyncForm.jsx
+		Web\test_web\src\components\UnitItem.jsx = Web\test_web\src\components\UnitItem.jsx
+		Web\test_web\src\components\UnitList.jsx = Web\test_web\src\components\UnitList.jsx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{5C9F4096-208C-402F-9168-280B8A49E4E7}"
+	ProjectSection(SolutionItems) = preProject
+		Web\test_web\src\services\UnitService.js = Web\test_web\src\services\UnitService.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{D990790A-832E-4DF1-B610-C5313722442D}"
+	ProjectSection(SolutionItems) = preProject
+		Web\test_web\public\index.html = Web\test_web\public\index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test_web", "test_web", "{8E27AE76-12DA-4EAB-B1DE-FB6D9A56C8CE}"
+	ProjectSection(SolutionItems) = preProject
+		Web\test_web\package-lock.json = Web\test_web\package-lock.json
+		Web\test_web\package.json = Web\test_web\package.json
+		Web\test_web\README.md = Web\test_web\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0358206E-BFE7-4F94-A725-AB769997ED91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0358206E-BFE7-4F94-A725-AB769997ED91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0358206E-BFE7-4F94-A725-AB769997ED91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0358206E-BFE7-4F94-A725-AB769997ED91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D900189-28C3-46A1-B50C-31F651843571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D900189-28C3-46A1-B50C-31F651843571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D900189-28C3-46A1-B50C-31F651843571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D900189-28C3-46A1-B50C-31F651843571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7C9373-8C65-4598-B046-9321ADB6ED70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7C9373-8C65-4598-B046-9321ADB6ED70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7C9373-8C65-4598-B046-9321ADB6ED70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7C9373-8C65-4598-B046-9321ADB6ED70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0358206E-BFE7-4F94-A725-AB769997ED91} = {27BBE8C4-345E-4A6F-B693-BA32A3B363ED}
+		{5D900189-28C3-46A1-B50C-31F651843571} = {27BBE8C4-345E-4A6F-B693-BA32A3B363ED}
+		{846F7421-ACB0-4A05-B567-04F44EBD5DCA} = {3176A744-63DC-4BE4-BE39-DBD7A658725A}
+		{5A9C3B78-9CD1-4B55-B328-CF84A4F73B59} = {3176A744-63DC-4BE4-BE39-DBD7A658725A}
+		{D28892B5-ADA3-4E3B-AEB3-CCBA5A513D91} = {5A9C3B78-9CD1-4B55-B328-CF84A4F73B59}
+		{3F7C9373-8C65-4598-B046-9321ADB6ED70} = {846F7421-ACB0-4A05-B567-04F44EBD5DCA}
+		{EA4C655B-0F4F-478D-81FA-07C51BA83B8A} = {8E27AE76-12DA-4EAB-B1DE-FB6D9A56C8CE}
+		{36EF3915-3F28-4CA9-A717-1F91D508B2E1} = {EA4C655B-0F4F-478D-81FA-07C51BA83B8A}
+		{5C9F4096-208C-402F-9168-280B8A49E4E7} = {EA4C655B-0F4F-478D-81FA-07C51BA83B8A}
+		{D990790A-832E-4DF1-B610-C5313722442D} = {EA4C655B-0F4F-478D-81FA-07C51BA83B8A}
+		{8E27AE76-12DA-4EAB-B1DE-FB6D9A56C8CE} = {AF119E06-5E9A-40C3-9C8D-B8555E84E58F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0235A612-379B-452C-8EA7-6D2F4A30FE0D}
+	EndGlobalSection
+EndGlobal
