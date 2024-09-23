@@ -21,7 +21,7 @@ namespace TestTask.Context.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Status = table.Column<string>(type: "text", nullable: false),
+                    status = table.Column<string>(type: "text", nullable: false),
                     ParentId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
