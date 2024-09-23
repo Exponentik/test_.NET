@@ -4,26 +4,31 @@ import UnitItem from "./UnitItem";
 
 const UnitList = () => {
     const [units, setUnits] = useState([]);
+    const [filter, setFilter] = useState(""); // Состояние для фильтра
 
     const fetchData = async () => {
         const fetchedUnits = await fetchUnits();
-        // Ensure that fetchedUnits is an array
         setUnits(fetchedUnits || []);
     };
 
     useEffect(() => {
-        fetchData(); // Initial call to load data
+        fetchData(); // Первоначальный вызов для загрузки данных
 
-        const interval = setInterval(fetchData, 3000); // Update data every 3 seconds
+        const interval = setInterval(fetchData, 3000); // Обновление данных каждые 3 секунды
 
-        return () => clearInterval(interval); // Clear interval on component unmount
+        return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
     }, []);
 
-    if (!Array.isArray(units) || units.length === 0) {
+    // Фильтрация по наименованию подразделения
+    const filteredUnits = units.filter(unit =>
+        unit.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    if (!Array.isArray(filteredUnits) || filteredUnits.length === 0) {
         return <h1 style={{ textAlign: 'center' }}>Департаменты не найдены</h1>;
     }
 
-    // Function to build tree
+    // Функция для построения дерева
     const buildTree = (units) => {
         const map = {};
         units.forEach(unit => {
@@ -40,7 +45,7 @@ const UnitList = () => {
         return tree;
     };
 
-    // Recursive function to render tree
+    // Рекурсивная функция для рендеринга дерева
     const renderTree = (nodes) => {
         return nodes.map(node => (
             <div key={node.id} style={{ marginLeft: '20px' }}>
@@ -50,10 +55,17 @@ const UnitList = () => {
         ));
     };
 
-    const unitTree = buildTree(units);
+    const unitTree = buildTree(filteredUnits);
 
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Поиск подразделения..."
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                style={{ marginBottom: '20px', width: '100%', padding: '8px' }}
+            />
             {renderTree(unitTree)}
         </div>
     );
