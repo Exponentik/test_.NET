@@ -34,6 +34,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.ExecuteSqlRaw("CREATE SCHEMA IF NOT EXISTS public;");
     context.Database.Migrate();
 }
 

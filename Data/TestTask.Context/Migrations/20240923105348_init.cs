@@ -11,14 +11,17 @@ namespace TestTask.Context.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // Создание схемы publi
+            // Пример создания таблицы в этой схеме
             migrationBuilder.CreateTable(
                 name: "Units",
+                schema: "public",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    status = table.Column<string>(type: "text", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
                     ParentId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
@@ -27,11 +30,15 @@ namespace TestTask.Context.Migrations
                 });
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            // Удаление таблицы
             migrationBuilder.DropTable(
-                name: "Units");
+                name: "Units",
+                schema: "public");
+
+            // Удаление схемы public
+            migrationBuilder.Sql("DROP SCHEMA IF EXISTS public CASCADE;");
         }
     }
 }
