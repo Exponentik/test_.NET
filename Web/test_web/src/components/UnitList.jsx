@@ -24,10 +24,6 @@ const UnitList = () => {
         unit.name.toLowerCase().includes(filter.toLowerCase())
     );
 
-    if (!Array.isArray(filteredUnits) || filteredUnits.length === 0) {
-        return <h1 style={{ textAlign: 'center' }}>Департаменты не найдены</h1>;
-    }
-
     // Функция для построения дерева
     const buildTree = (units) => {
         const map = {};
@@ -66,7 +62,9 @@ const UnitList = () => {
                 onChange={(e) => setFilter(e.target.value)}
                 style={{ marginBottom: '20px', width: '100%', padding: '8px' }}
             />
-            {renderTree(unitTree)}
+            {unitTree.length > 0 ? renderTree(unitTree) : (
+                <h1 style={{ textAlign: 'center' }}>Подразделения не найдены</h1>
+            )}
         </div>
     );
 };
