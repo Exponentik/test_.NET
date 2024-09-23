@@ -25,6 +25,7 @@ __Запустите сервисы:__
 
 # Frontend:  
 __Перейдите в директорию фронтенда и установите зависимости:__  
+`cd Web/test_web`  
 `npm i react-router-dom`  
 `npm i react`  
 `npm i axios`
