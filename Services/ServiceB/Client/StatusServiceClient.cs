@@ -12,7 +12,7 @@ namespace ServiceB.Client
         public StatusServiceClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _httpClient.DefaultRequestHeaders.Add("apiKey", "hui");
+            _httpClient.DefaultRequestHeaders.Add("apiKey", "Akey");
         }
 
         public async Task<UnitStatusModel> GetStatusesAsync(int Id)

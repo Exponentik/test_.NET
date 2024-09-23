@@ -3,6 +3,7 @@ using ServiceB.Models;
 using System.Net.Http.Headers;
 using Microsoft.EntityFrameworkCore;
 using TestTask.Context;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,12 @@ builder.Services.AddHttpClient<StatusServiceClient>(client =>
 });
 
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
+}
+
 
 // Middleware
 app.UseCors("AllowAll");

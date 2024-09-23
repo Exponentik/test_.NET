@@ -12,34 +12,39 @@ const SyncForm = () => {
         const reader = new FileReader();
         
         reader.onload = (e) => {
-            const fileContent = e.target.result; // Переменная должна быть объявлена здесь
-            console.log(fileContent);
+            const fileContent = e.target.result;
             const lines = fileContent.split('\n');
             const unitList = [];
 
             lines.forEach((line) => {
-                const [id, parentId, name, status] = line.split(' ');
-                if (id && parentId && name && status) {
+                let [id, parentId, name, status] = line.split(' ');
+
+                if (!parentId) {
+                    parentId = null;
+                } else {
+                    parentId = parentId.trim();
+                }
+                
+                if (id && name && status) {
                     unitList.push({
                         id: id.trim(),
-                        parentId: parentId.trim(),
+                        parentId,
                         name: name.trim(),
                         status: status.trim(),
                     });
                 }
             });
 
-            // Устанавливаем список юнитов в состояние
             setUnits(unitList);
             console.log(unitList);
         };
 
-        reader.readAsText(file); // Этот вызов должен быть здесь
+        reader.readAsText(file);
     };
 
     const fetchUnits = async () => {
         console.log(units);
-        const url = 'http://localhost:5195/api/units/sync'; // Ваш URL
+        const url = 'http://localhost:5195/api/units/sync';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -47,8 +52,11 @@ const SyncForm = () => {
             },
             body: JSON.stringify(units),
         })
-            .then((response) => {if(response.status===200){window.location.reload();}})
-
+            .then((response) => {
+                if (response.status === 200) {
+                    window.location.reload();
+                }
+            })
             .catch((error) => {
                 console.error('Ошибка:', error);
             });
@@ -63,7 +71,7 @@ const SyncForm = () => {
                 Загрузить файл
             </button>
             <input
-                id="fileInput"  
+                id="fileInput"
                 type="file"
                 style={{ display: 'none' }}
                 accept=".txt"
