@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const SyncForm = () => {
     const [units, setUnits] = useState([]);
 
@@ -48,10 +47,8 @@ const SyncForm = () => {
             },
             body: JSON.stringify(units),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Успешный ответ:', data);
-            })
+            .then((response) => {if(response.status===200){window.location.reload();}})
+
             .catch((error) => {
                 console.error('Ошибка:', error);
             });

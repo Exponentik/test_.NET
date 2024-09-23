@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { fetchUnits } from "../services/UnitService";
 import UnitItem from "./UnitItem";
+
 const UnitList = () => {
     const [units, setUnits] = useState([]);
 
     const fetchData = async () => {
-        const units = await fetchUnits();
-        setUnits(units);
+        const fetchedUnits = await fetchUnits();
+        // Ensure that fetchedUnits is an array
+        setUnits(fetchedUnits || []);
     };
 
     useEffect(() => {
-        fetchData(); // Первоначальный вызов для загрузки данных
+        fetchData(); // Initial call to load data
 
-        const interval = setInterval(fetchData, 3000); // Обновление данных каждые 3 секунды
+        const interval = setInterval(fetchData, 3000); // Update data every 3 seconds
 
-        return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
+        return () => clearInterval(interval); // Clear interval on component unmount
     }, []);
 
-    if (units.length === 0) {
+    if (!Array.isArray(units) || units.length === 0) {
         return <h1 style={{ textAlign: 'center' }}>Департаменты не найдены</h1>;
     }
 
-    // Функция для построения дерева
+    // Function to build tree
     const buildTree = (units) => {
         const map = {};
         units.forEach(unit => {
@@ -38,7 +40,7 @@ const UnitList = () => {
         return tree;
     };
 
-    // Рекурсивная функция для отображения дерева
+    // Recursive function to render tree
     const renderTree = (nodes) => {
         return nodes.map(node => (
             <div key={node.id} style={{ marginLeft: '20px' }}>
